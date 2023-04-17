@@ -28,14 +28,14 @@ https://github.com/nWidart/laravel-modules
 ## Installation 
 ```bash
 ### Laravel run with Docker 
--  make init
+make init
 ```
 
 ### Angular
 ```bash
-- cd frontend
-- npm install
-- ng serve
+cd frontend
+npm install
+ng serve
 ```
 
 ## Socialite

@@ -1,0 +1,96 @@
+<div class="auth-overlay"></div>
+<div class="signup-wrap  default">
+  <div
+    style="padding-top: 140px"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <div
+      class="signup-container white"
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutAlign="start stretch"
+      fxFlex="50"
+      fxFlex.xs="100"
+      fxFlex.sm="80"
+    >
+      <!-- Left Side content -->
+      <div fxLayout="column" fxLayoutAlign="center" class="signup-header" fxFlex="40">
+        <div fxLayout="row wrap" fxLayoutAlign="center">
+          <img width="400px" src="/assets/images/modules/auth/form.svg" alt="">
+        </div>
+      </div>
+
+      <!-- Right side content -->
+      <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="center center">
+        <form [formGroup]="form" (submit)="signUp()" class="signup-form grey-100">
+
+          <div class="text-center">
+            <a [routerLink]="'/auth/sign-in'" class="text-center full-width font-weight-bold">Login</a>
+            <span fxFlex></span>
+            <a [routerLink]="'/auth/sign-up'" class="text-center full-width">Sign up</a>
+          </div>
+
+          <mat-divider class="my-32"></mat-divider>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              type="email"
+              name="email"
+              placeholder="Введите Email"
+            />
+            <mat-error>{{ form.get('email')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Имя (логин)</mat-label>
+            <input
+              matInput
+              formControlName="name"
+              type="text"
+              name="name"
+
+            />
+            <mat-error>{{ form.get('email')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Пароль</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              type="password"
+              name="password"
+              placeholder="Введите пароль"
+            />
+            <mat-error>{{ form.get('password')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Repeat password</mat-label>
+            <label>
+              <input
+                formControlName="password_confirmation"
+                matInput
+                name="password_confirmation"
+                type="password"
+                placeholder="Повторите пароль"
+              />
+            </label>
+            <mat-error>{{ form.get('password_confirmation')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <div class="mb-16">
+            <button type="submit" fxFill mat-raised-button color="primary">
+              Sign up
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="auth-overlay"></div>
+<div class="signup-wrap default">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+    class="auth-wrap"
+  >
+    <div
+      class="signup-container white "
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutAlign="start stretch"
+      fxFlex="50"
+      fxFlex.xs="100"
+      fxFlex.sm="80"
+    >
+      <!-- Left Side content -->
+      <div fxLayout="column"
+           fxLayoutAlign="center"
+           class="signup-header"
+           fxFlex="40">
+        <div fxLayout="row wrap"
+             fxLayoutAlign="center"
+        >
+          <img width="400px" src="/assets/images/modules/auth/form.svg" alt="">
+        </div>
+
+      </div>
+      <!-- Right side content -->
+      <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="center center">
+        <form [formGroup]="form" (submit)="signIn()" class="signup-form grey-100  mat-elevation-z1 full-width">
+          <div class="text-center">
+            <a [routerLink]="'/'" class="text-center full-width font-weight-bold">Main</a>
+            <span fxFlex></span>
+            <a [routerLink]="'/auth/sign-up'" class="text-center full-width font-weight-bold">Registration</a>
+          </div>
+
+          <mat-divider class="my-32"></mat-divider>
+
+          <div class="default">
+
+            <div class="mb-24">
+              <button (click)="facebookLogin()"
+                      fxFill mat-raised-button color="primary"
+                      style="background-color: #3b5998;">Sign in via Facebook
+              </button>
+            </div>
+            <div class="mb-24">
+              <button (click)="googleLogin()" fxFill mat-raised-button color="warn">Войти через Google</button>
+            </div>
+          </div>
+          <mat-divider class="my-32"></mat-divider>
+          <div class="form-headline text-center">
+            <p>Login In</p>
+          </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              type="email"
+              name="email"
+              placeholder="Введите Email"
+            />
+            <mat-error>{{ form.get('email')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              type="password"
+              name="password"
+              placeholder="Введите пароль"
+            />
+            <mat-error>{{ form.get('password')?.errors }}</mat-error>
+          </mat-form-field>
+
+          <div class="mb-16">
+            <button type="submit"
+                    fxFill mat-raised-button color="primary"
+                    >
+              Login
+            </button>
+          </div>
+          <mat-divider class="my-32"></mat-divider>
+
+          <a [routerLink]="'/auth/reset-password'" class="mat-primary text-center full-width">Forgot password?</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

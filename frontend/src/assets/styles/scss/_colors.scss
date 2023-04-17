@@ -1,0 +1,69 @@
+$black: rgba(0, 0, 0, 0.87);
+$white: rgba(255, 255, 255, 0.87);
+
+$material-colors: (
+  white: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+    contrast: (
+      50: $black,
+      100: $black,
+      200: $black,
+      300: $black,
+      400: $black,
+      500: $black,
+      600: $black,
+      700: $black,
+      800: $black,
+      900: $black,
+      A100: $black,
+      A200: $black,
+      A400: $black,
+      A700: $black
+    )
+  ),
+  slate: (
+    50: #696e84,
+    100: #434343,
+    200: #757784,
+    300: #222a45,
+    400: #222a45,
+    500: #71737b,
+    600: #a3a8b9,
+    700: #858a9b,
+    800: #5b5c5f,
+    900: #5d5f63,
+    A100: #818594,
+    A200: #7a8198,
+    A400: #222a45,
+    A700: #222a45,
+    contrast: (
+      50: #ffffff,
+      100: #ffffff,
+      200: #ffffff,
+      300: #ffffff,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+      A100: #ffffff,
+      A200: #ffffff,
+      A400: #ffffff,
+      A700: #ffffff
+    )
+  )
+);

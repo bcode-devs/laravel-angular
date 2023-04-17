@@ -1,0 +1,85 @@
+<div class="auth-overlay"></div>
+<div class="signup-wrap default">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+    class="auth-wrap"
+  >
+    <div
+      class="signup-container white "
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutAlign="start stretch"
+      fxFlex="50"
+      fxFlex.xs="100"
+      fxFlex.sm="80"
+    >
+      <!-- Left Side content -->
+      <div fxLayout="column"
+           fxLayoutAlign="center"
+           class="signup-header"
+           fxFlex="40">
+        <div fxLayout="row wrap"
+             fxLayoutAlign="center"
+        >
+          <img width="400px" src="/assets/images/modules/auth/form.svg" alt="">
+        </div>
+
+      </div>
+      <!-- Right side content -->
+      <div fxFlex="60" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="signup-form grey-100 mat-elevation-z1 full-width">
+          <div class="text-center">
+            <a [routerLink]="'/'" class="text-center full-width font-weight-bold">На главную</a>
+            <span fxFlex></span>
+            <a [routerLink]="'/auth/sign-in'" class="text-center full-width font-weight-bold">Войти</a>
+          </div>
+          <mat-divider class="my-32"></mat-divider>
+          <ng-template [ngIf]="!emailVerified" [ngIfElse]="email_verified">
+            <div class="default">
+              <h3 class="m-0 font-normal">
+                Подтверждение электронной почты.
+                <br>
+                <br>
+                Для завершения регистрации пожалуйста,
+                <br>
+                проверьте свою электронную почту
+                и следуйте инструкциям в письме.
+              </h3>
+              <mat-divider class="my-32"></mat-divider>
+              <small class="text-muted">Если вы не получили электронное письмо,
+                проверьте папку "Спам" в вашей почте или свяжитесь
+                с нашей службой поддержки.
+              </small>
+            </div>
+          </ng-template>
+          <ng-template #email_verified>
+            <div class="default">
+              <h3 class="m-0 font-normal">
+                Спасибо за регистрацию на нашем сайте!
+                <br>
+              </h3>
+              <div class="mt-16">
+                <a [routerLink]="'/auth/sign-in'" >
+                  <button type="submit"
+                          fxFill mat-raised-button
+                          color="primary"
+                  >
+                    Войти
+                  </button>
+                </a>
+
+              </div>
+              <mat-divider class="my-32"></mat-divider>
+              <small class="text-muted">
+                Вы можете войти на сайт использую свой email и пароль
+              </small>
+            </div>
+          </ng-template>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

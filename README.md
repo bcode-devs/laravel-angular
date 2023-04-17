@@ -2,28 +2,42 @@
 
 > A Laravel 10 | Angular 15 SPA starter kit.
 <p align="center">
-<img src="https://i.imgur.com/NHFTsGt.png">
+<img src="https://raw.githubusercontent.com/bcode-devs/laravel-angular/main/documentation/sign-in.png">
 </p>
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/bcode-devs/laravel-angular/main/documentation/sign-up.png">
+</p>
+
 
 ## Features
 
 - Laravel 15
 - Angular + Angular Material + RxJs
-- Pages with dynamic import and custom layouts
 - Login, register, email verification and password reset
 - Authentication with Laravel sanctum
 - Socialite integration
-- Docker
+- Docker compose
+- Laravel horizon
+
+> A Laravel 10 | Module structure
+https://github.com/nWidart/laravel-modules
+- Check api/Modules folder
+- | Auth | Profile
 
 ## Installation 
+```bash
 ### Laravel run with Docker 
 -  http://localhost:8080/api
-- `make init`
-
+-  make init
+```
 
 ### Angular
-- `cd frontend && ng serve`
-
+```bash
+- cd frontend
+- npm install
+- ng serve
+```
 
 ## Socialite
 
@@ -38,6 +52,15 @@ For other providers you may need to set the appropriate keys in `config/services
 ## Email Verification
 Check mailhog message
 http://localhost:8025/#
+<p align="center">
+<img src="https://raw.githubusercontent.com/bcode-devs/laravel-angular/main/documentation/email.png">
+</p>
+
+## Laravel Horizon
+http://localhost:8080/horizon
+<p align="center">
+<img src="https://raw.githubusercontent.com/bcode-devs/laravel-angular/main/documentation/horizon.png">
+</p>
 
 
 ## Testing
@@ -46,3 +69,6 @@ http://localhost:8025/#
 # Run unit and feature tests
 make test
 ```
+
+### Laravel-Vue Version
+https://github.com/cretueusebiu/laravel-vue-spa

@@ -1,0 +1,23 @@
+{
+    "name": "bcode/shared",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bcode",
+            "email": "dev.bcode@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Shared\\": ""
+        }
+    }
+}

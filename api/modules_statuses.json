@@ -1,0 +1,7 @@
+{
+    "Shared": true,
+    "Auth": true,
+    "Horizon": true,
+    "Telescope": false,
+    "Profile": true
+}

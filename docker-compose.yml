@@ -30,7 +30,6 @@ services:
         volumes:
             - ./api:/app
         depends_on:
-            - api-elasticsearch
             - api-mysql
             - api-redis
             - api-smtp
@@ -61,26 +60,9 @@ services:
         volumes:
             - ./api:/app
         depends_on:
-            - api-elasticsearch
             - api-mysql
             - api-redis
             - api-smtp
-
-    api-elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
-        environment:
-            - discovery.type=single-node
-            - bootstrap.memory_lock=true
-            - bootstrap.system_call_filter=false
-            - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
-        ulimits:
-            memlock:
-                soft: -1
-                hard: -1
-        volumes:
-            - ./api/docker/common/data/elasticsearch:/usr/share/elasticsearch/data
-        ports:
-            - "9200:9200"
 
     api-redis:
         platform: linux/x86_64
@@ -98,7 +80,6 @@ services:
         volumes:
             - ./api:/app
         depends_on:
-            - api-elasticsearch
             - api-mysql
             - api-redis
             - api-smtp

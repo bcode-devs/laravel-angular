@@ -1,0 +1,112 @@
+version: "3.7"
+services:
+    gateway:
+        build:
+            context: gateway/docker
+            dockerfile: development/nginx/Dockerfile
+        ports:
+            - "8080:8081"
+        depends_on:
+            - api
+    api:
+        build:
+            context: api/docker
+            dockerfile: development/nginx/Dockerfile
+        volumes:
+            - ./api:/app
+        depends_on:
+            - api-php-fpm
+
+    api-php-fpm:
+        build:
+            context: api/docker
+            dockerfile: development/php-fpm/Dockerfile
+        environment:
+            APP_ENV: dev
+            HORIZON_PREFIX: app_bcode
+            DB_HOST: api-mysql
+            APP_DEBUG: 1
+            PHP_IDE_CONFIG: serverName=api
+        volumes:
+            - ./api:/app
+        depends_on:
+            - api-elasticsearch
+            - api-mysql
+            - api-redis
+            - api-smtp
+
+    api-mysql:
+        image: "mysql:8.0"
+        ports:
+            - "33062:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: app
+            MYSQL_USER: app
+            MYSQL_PASSWORD: password
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+            - ./api/docker/common/data/mysql:/var/lib/mysql
+
+    api-php-cli:
+        build:
+            context: api/docker
+            dockerfile: development/php-cli/Dockerfile
+        environment:
+            HORIZON_PREFIX: app_bcode
+            DB_HOST: api-mysql
+            APP_ENV: dev
+            APP_DEBUG: 1
+        volumes:
+            - ./api:/app
+        depends_on:
+            - api-elasticsearch
+            - api-mysql
+            - api-redis
+            - api-smtp
+
+    api-elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+        environment:
+            - discovery.type=single-node
+            - bootstrap.memory_lock=true
+            - bootstrap.system_call_filter=false
+            - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+            - ./api/docker/common/data/elasticsearch:/usr/share/elasticsearch/data
+        ports:
+            - "9200:9200"
+
+    api-redis:
+        platform: linux/x86_64
+        image: redis:3.0
+        ports:
+            - "63792:6379"
+
+    api-horizon:
+        build:
+            context: api/docker
+            dockerfile: development/laravel-horizon/Dockerfile
+        command: php artisan horizon
+        environment:
+            HORIZON_PREFIX: app_bcode
+        volumes:
+            - ./api:/app
+        depends_on:
+            - api-elasticsearch
+            - api-mysql
+            - api-redis
+            - api-smtp
+
+    api-smtp:
+        image: arjenz/mailhog
+        logging:
+            driver: 'none'
+        ports:
+            - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+            - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'

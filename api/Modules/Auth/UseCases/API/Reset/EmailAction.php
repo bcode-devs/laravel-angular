@@ -12,17 +12,17 @@ final class EmailAction
 {
     public function __invoke(array $request): Response
     {
-        // Delete all old code that user send before.
+        // Delete all old token that user send before.
         Reset::query()->where('email', $request['email'])->delete();
 
         $request['token'] = Str::uuid();
 
-        // Create a new code
+        // Create a new token
         $reset = Reset::query()->create($request);
 
-        // Send email to user
+        // Send email with reset token to user
         Mail::to($reset['email'])->send(new AuthResetPasswordMail($reset['token']));
 
-        return response(['message' => trans('passwords.sent')], 200);
+        return response(['message' => trans('auth::passwords.sent')], 200);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Modules\Auth\UseCases\API\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use Modules\Profile\Http\Resources\ProfileResource;
-use Modules\Shared\Entities\User\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Symfony\Component\HttpFoundation\Response;
+use Modules\Shared\Entities\User\User;
+use Illuminate\Http\Request;
 
 trait ActionTrait
 {
@@ -32,10 +32,6 @@ trait ActionTrait
 
     public function logout(Request $request): void
     {
-        //$this->guard()->logout();
         $request->user()->tokens()->delete();
-        //$request->user()->currentAccessToken()->delete();
-        //$request->session()->invalidate();
-        //$request->session()->regenerateToken();
     }
 }

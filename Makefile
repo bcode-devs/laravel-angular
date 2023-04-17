@@ -40,9 +40,6 @@ api-migrations:
 api-fixtures:
 	docker-compose run --rm api-php-cli php artisan db:seed
 
-## Elasticsearch init
-api-search-init: api-wait-elasticsearch api-elasticsearch-init
-
 api-wait-elasticsearch:
 	docker-compose run --rm api-php-cli wait-for-it api-elasticsearch:9200 -t 60
 api-elasticsearch-init:

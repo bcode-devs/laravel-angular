@@ -1,0 +1,25 @@
+{
+    "name": "bcode/auth",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bcode",
+            "email": "dev.bcode@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Auth\\": "",
+            "Database\\Factories\\": "Database/factories/",
+            "Database\\Seeders\\": "Database/Seeders/"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Horizon",
+    "alias": "horizon",
+    "description": "",
+    "keywords": [],
+    "priority": 2,
+    "providers": [
+        "Modules\\Horizon\\Providers\\HorizonServiceProvider"
+    ],
+    "files": [],
+    "title": "",
+    "version": "1",
+    "compatibility": "",
+    "author": ""
+}

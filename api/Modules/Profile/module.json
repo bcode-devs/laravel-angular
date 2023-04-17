@@ -1,0 +1,15 @@
+{
+    "name": "Profile",
+    "alias": "profile",
+    "description": "",
+    "keywords": [],
+    "priority": 3,
+    "providers": [
+        "Modules\\Profile\\Providers\\ProfileServiceProvider"
+    ],
+    "files": [],
+    "title": "",
+    "version":"1",
+    "compatibility": "",
+    "author": ""
+}

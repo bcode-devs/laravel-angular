@@ -28,7 +28,6 @@ https://github.com/nWidart/laravel-modules
 ## Installation 
 ```bash
 ### Laravel run with Docker 
--  http://localhost:8080/api
 -  make init
 ```
 

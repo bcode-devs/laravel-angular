@@ -12,8 +12,8 @@
 
 ## Features
 
-- Laravel 15
-- Angular + Angular Material + RxJs
+- Laravel 10 + laravel Sanctum + laravel Social
+- Angular 15 + Angular Material + RxJs
 - Login, register, email verification and password reset
 - Authentication with Laravel sanctum
 - Socialite integration

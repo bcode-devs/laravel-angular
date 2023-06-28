@@ -27,7 +27,7 @@ https://github.com/nWidart/laravel-modules
 
 ## Installation 
 ```bash
-### Laravel run with Docker 
+## run: docker-down-clear api-clear docker-pull docker-build docker-up api-init
 make init
 ```
 

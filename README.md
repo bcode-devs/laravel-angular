@@ -1,6 +1,6 @@
 # Laravel & Angular SPA 
 
-> A Laravel 10 | Angular 15 SPA starter kit.
+> Laravel | Angular SPA starter kit.
 <p align="center">
 <img src="https://raw.githubusercontent.com/bcode-devs/laravel-angular/main/documentation/sign-in.png">
 </p>
